@@ -60,7 +60,6 @@
             box-sizing: border-box;
             font-size: 1.2em;
             }
-        
     </style>
 </head>
 <body>
@@ -71,5 +70,23 @@
     <div id="dialogue">
         여기에서 대화가 표시됩니다. "안녕하세요! 저는 당신의 가이드입니다."
     </div>
+
+
+
+
+
+    <script>
+      const text = "Hello, this is a typing effect!";
+      const typingElement = document.getElementById('typing');
+      let index = 0;
+      function type() {
+        if (index < text.length) {
+              typingElement.textContent += text.charAt(index);
+              index++;
+              setTimeout(type, 100); // 속도를 조절하려면 이 값을 변경하세요.
+            }
+          }
+        type();
+    </script>
 </body>
 </html>
