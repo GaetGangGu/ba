@@ -80,17 +80,24 @@
 
 
     <script>
-      const text = "Hello, this is a typing effect!";
       const typingElement = document.getElementById('typing');
       let index = 0;
+      let text = "Hello, this is a typing effect!";
       function type() {
         if (index < text.length) {
               typingElement.textContent += text.charAt(index);
               index++;
-              setTimeout(type, 100); // 속도를 조절하려면 이 값을 변경하세요.
+              setTimeout(type, 50); // 속도를 조절하려면 이 값을 변경하세요.
             }
           }
-        type();
+      triggerElement.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                text = triggerElement.value;
+                typingElement.textContent = ""; // 이전 내용 초기화
+                index = 0; // 인덱스 초기화
+                type();
+            }
+      }
     </script>
 </body>
 </html>
