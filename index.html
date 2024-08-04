@@ -73,6 +73,7 @@
         </div>
         <div id="typing">
         </div>
+        <input type="text" id="trigger" placeholder="여기에 텍스트를 입력하고 Enter를 누르세요">
     </div>
 
 
@@ -81,6 +82,7 @@
 
     <script>
       const typingElement = document.getElementById('typing');
+      const triggerElement = document.getElementById('trigger');
       let index = 0;
       let text = "Hello, this is a typing effect!";
       function type() {
