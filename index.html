@@ -60,6 +60,12 @@
             box-sizing: border-box;
             font-size: 1.2em;
             }
+        #trigger {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
     </style>
 </head>
 <body>
@@ -71,35 +77,31 @@
         <div id="name">
             이름
         </div>
-        <div id="typing">
-        </div>
+        <div id="typing"></div>
         <input type="text" id="trigger" placeholder="여기에 텍스트를 입력하고 Enter를 누르세요">
     </div>
-
-
-
-
-
     <script>
       const typingElement = document.getElementById('typing');
       const triggerElement = document.getElementById('trigger');
       let index = 0;
-      let text = "Hello, this is a typing effect!";
+      let text = "";
+      
       function type() {
         if (index < text.length) {
               typingElement.textContent += text.charAt(index);
               index++;
               setTimeout(type, 50); // 속도를 조절하려면 이 값을 변경하세요.
-            }
-          }
-      triggerElement.addEventListener('keydown', function(event) {
-            if (event.key === 'Enter') {
-                text = triggerElement.value;
-                typingElement.textContent = ""; // 이전 내용 초기화
-                index = 0; // 인덱스 초기화
-                type();
-            }
+        }
       }
+      
+      triggerElement.addEventListener('keydown', function(event) {
+          if (event.key === 'Enter') {
+              text = triggerElement.value;
+              typingElement.textContent = ""; // 이전 내용 초기화
+              index = 0; // 인덱스 초기화
+              type();
+          }
+      });
     </script>
 </body>
 </html>
